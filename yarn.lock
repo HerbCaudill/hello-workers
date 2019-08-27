@@ -4334,11 +4334,6 @@ react-dom@16:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
-react-hooks-worker@0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/react-hooks-worker/-/react-hooks-worker-0.8.0.tgz#57be5986321a3eba8b825249399b95b51a3c3e8a"
-  integrity sha512-Qjd66etCCOAUrLBMbTQPB1SmBwvamkJ0HSbaR31PKDjgsOb9sPcdXuE6MSwebj06keDzOw54vu6iClDbsZZv1Q==
-
 react-is@^16.8.1:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"

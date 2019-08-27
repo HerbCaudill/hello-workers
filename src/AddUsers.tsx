@@ -1,18 +1,16 @@
 import * as React from 'react'
 
-import { useWorker } from './useWorker'
+import { useWorker } from './lib/useWorker'
 
 const addUsersWorker = () => new Worker('./workers/addUsers.ts')
 
-const AddUsers: React.FC<{ count: number }> = ({ count }) => {
-  const { result, error } = useWorker(addUsersWorker, count)
-
-  return (
-    error ? <div>Error: {JSON.stringify(error)}</div> :
-      result ? <div>Added {result} users</div> :
-        <span />
-  )
-
+interface AddUsersProps {
+  count: number
 }
 
-export default AddUsers
+export const AddUsers = ({ count }: AddUsersProps) => {
+  const { result, error } = useWorker(addUsersWorker, count)
+
+  if (error) throw new Error(error)
+  return result ? <div>Added {result} users</div> : <span />
+}

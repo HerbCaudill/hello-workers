@@ -2,7 +2,7 @@
 
 interface State {
   result: any
-  error: string | Error
+  error: string
 }
 
 interface Action {
@@ -21,7 +21,7 @@ const reducer = (state: State, action: Action): State => {
     case 'result':
       return { result: action.payload, error: null }
     case 'error':
-      return { result: null, error: 'error' }
+      return { result: null, error: action.payload }
     default:
       throw new Error('unknown action')
   }
@@ -34,19 +34,12 @@ export const useWorker = (workerFactory: WorkerFactory, input: unknown) => {
 
   useEffect(() => {
     lastWorker.current = worker
-
-    let dispatchSafe = dispatch
-
-    worker.onmessage = e => dispatchSafe({ type: 'result', payload: e.data })
-    worker.onerror = e => dispatchSafe({ type: 'error', payload: e.error })
-
-    const cleanup = () => {
-      dispatchSafe = () => null // don't dispatch after cleanup.
-      worker.terminate()
-      dispatch({ type: 'init' })
+    worker.onmessage = e => {
+      if (e.data !== undefined) {
+        if (e.data.error) dispatch({ type: 'error', payload: e.data.error })
+        else dispatch({ type: 'result', payload: e.data })
+      }
     }
-
-    return cleanup
   }, [worker])
 
   useEffect(() => lastWorker.current.postMessage(input), [input])

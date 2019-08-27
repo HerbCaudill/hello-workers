@@ -1,5 +1,6 @@
 ﻿{
   "compilerOptions": {
+    "jsx": "react",
     "lib": ["webworker", "es5", "scripthost"]
   }
 }

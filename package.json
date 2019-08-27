@@ -11,8 +11,7 @@
     "automerge": "0",
     "react": "16",
     "react-countdown-clock": "2",
-    "react-dom": "16",
-    "react-hooks-worker": "0"
+    "react-dom": "16"
   },
   "devDependencies": {
     "@types/node-fetch": "2",
@@ -20,5 +19,11 @@
     "@types/react-dom": "16",
     "parcel-bundler": "1",
     "typescript": "3"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }

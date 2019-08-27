@@ -1,21 +1,30 @@
 import * as React from 'react'
 import { useState } from 'react'
 import ReactCountdownClock from 'react-countdown-clock'
-import AddUsers from './AddUsers'
+import { AddUsers } from './AddUsers'
+import { ThrowError } from './ThrowError'
 
 const App = () => {
   const [count, setCount] = useState()
-  const click = () => setCount(Math.floor(Math.random() * 1000 + 1000))
+  const [throwCount, setThrowCount] = useState()
+
+  const rnd = () => Math.floor(Math.random() * 1000 + 1000)
+  const addUsers = () => setCount(rnd())
+  const throwError = () => setThrowCount(rnd())
 
   return (
-    <div style={{ margin: 60 }}>
-      <ReactCountdownClock seconds={100} color="#00f" alpha={0.9} size={150} />
-      <div style={{ marginTop: 40 }}>
-        <button onClick={click}>Add users</button>
+    <div style={{ margin: 40 }}>
+      <div style={{ marginBottom: 40 }}>
+        <ReactCountdownClock seconds={100} color="teal" size={150} />
       </div>
-      <div style={{ marginTop: 10 }}>
-        <AddUsers count={count} />
-      </div>
+      <p>
+        <button onClick={addUsers}>Add users</button>
+      </p>
+      <p>
+        <button onClick={throwError}>Throw</button>
+      </p>
+      <AddUsers count={count} />
+      <ThrowError count={throwCount} />
     </div>
   )
 }
