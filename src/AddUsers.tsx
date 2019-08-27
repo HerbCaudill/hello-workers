@@ -15,7 +15,7 @@ export const AddUsers = () => {
   return (
     <div>
       <p>
-        <button onClick={addUsers}>Add users in background</button>
+        <button onClick={addUsers}>Add users in worker process</button>
       </p>
       <AddUsers_Worker count={count} />
     </div>

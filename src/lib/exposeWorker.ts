@@ -10,14 +10,7 @@
       // support async or regular values
       else postMessage(await result)
     } catch (e) {
-      postMessage({
-        error: JSON.stringify({
-          name: e.name,
-          message: e.message,
-          description: e.description,
-          number: e.number,
-        }),
-      })
+      postMessage({ error: e.message })
     }
   }
 }

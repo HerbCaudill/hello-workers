@@ -15,7 +15,7 @@ export const ThrowError = () => {
   return (
     <div>
       <p>
-        <button onClick={throwError}>Throw</button>
+        <button onClick={throwError}>Throw error in worker process</button>
       </p>
       <ThrowError_Worker count={count} />
     </div>
@@ -26,7 +26,7 @@ export const ThrowError_Worker = ({ count = 0 }: AddUsersProps) => {
   const { result, error } = useWorker(throwErrorWorker, count)
 
   return error ? (
-    <div style={{ color: 'red' }}>Error: {JSON.parse(error).message}</div>
+    <div style={{ color: 'red' }}>Error: {error}</div>
   ) : result ? (
     <div>Result: {JSON.stringify(result)}</div>
   ) : (
