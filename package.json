@@ -19,7 +19,6 @@
     "@types/react": "16",
     "@types/react-dom": "16",
     "parcel-bundler": "1",
-    "typescript": "3",
-    "worker-plugin": "3"
+    "typescript": "3"
   }
 }
