@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import { useWorker } from 'react-hooks-worker'
+import { useWorker } from './useWorker'
 
-const addUsersWorker = () => new Worker('./addUsers.worker.ts')
+const addUsersWorker = () => new Worker('./workers/addUsers.ts')
 
 const AddUsers: React.FC<{ count: number }> = ({ count }) => {
   const { result, error } = useWorker(addUsersWorker, count)
