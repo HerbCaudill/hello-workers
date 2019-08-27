@@ -4,24 +4,22 @@
   "description": "test of web workers with react",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/index.html --open",
-    "start:1": "parcel ./src-1/index.html --open",
-    "start:2": "parcel ./src-2/index.html --open"
+    "start": "parcel ./src/index.html --open"
   },
   "license": "MIT",
   "dependencies": {
-    "automerge": "^0.12.1",
-    "react": "latest",
-    "react-countdown-clock": "^2.6.0",
-    "react-dom": "latest",
-    "react-hooks-worker": "^0.8.0"
+    "automerge": "0",
+    "react": "16",
+    "react-countdown-clock": "2",
+    "react-dom": "16",
+    "react-hooks-worker": "0"
   },
   "devDependencies": {
-    "@types/node-fetch": "^2.1.4",
-    "@types/react": "^16.7.6",
-    "@types/react-dom": "^16.0.9",
-    "parcel-bundler": "^1.12.3",
-    "typescript": "^3.5.3",
-    "worker-plugin": "^3.1.0"
+    "@types/node-fetch": "2",
+    "@types/react": "16",
+    "@types/react-dom": "16",
+    "parcel-bundler": "1",
+    "typescript": "3",
+    "worker-plugin": "3"
   }
 }
